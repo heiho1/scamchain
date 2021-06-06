@@ -1,0 +1,18 @@
+@startuml
+enum            ResponseStatus
+interface       ERC20
+interface       ERC721
+class Response 
+class           Scam
+class           Comp
+class           Watch
+class           WatchDAO
+Scam <|-- ERC721
+Comp <|-- ERC721
+Watch <|-- ERC20
+WatchDAO o-- Watch : WatchDAO aggregates liquidity as Watch tokens
+WatchDAO o-- Response : WatchDAO generates responses to Comp tokens
+Response --> ResponseStatus : Responses have enumerated states
+Response : ResponseStatus status
+Comp "1" --> "1" Scam : Comp token generates a single Scam token
+@enduml

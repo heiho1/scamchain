@@ -1,0 +1,16 @@
+@startuml
+skinparam actorStyle awesome
+
+(Report Scam Incident) as (SI)
+(Scam Response) as (RI)
+actor Victim
+actor Scammer
+actor WatchDAO
+
+Victim --> (SI) : The Victim of a scammer or a concerned party reports a scam incident
+(SI) --> Scammer : The incident identifies the address of the scammer
+WatchDAO --> (RI) 
+(RI) --> Victim
+(RI) --> Scammer
+(SI) --> WatchDAO : A scam incident causes a response from the WatchDAO
+@enduml
